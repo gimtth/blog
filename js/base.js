@@ -22,7 +22,7 @@
 
   function initActive () {
     let root = document.querySelector(':root')
-    var active = sessionStorage.getItem('wttandroid')
+    var active = sessionStorage.getItem('gimtth')
     
     
     if (active && active == 'true') { //非第一次登录 且是开灯(白色)
@@ -59,7 +59,7 @@
     let root = document.querySelector(':root')
 
     if ($('#myRadio').hasClass('active')) { //现在黑色变成白色
-      sessionStorage.setItem('wttandroid', true)
+      sessionStorage.setItem('gimtth', true)
       
       $('#myRadio').removeClass('active')
       $('.navigation').removeClass('active')
@@ -74,7 +74,7 @@
       root.style.setProperty('--bagColor', '#f4f5f7')
 
     } else {//现在白色变成黑色
-      sessionStorage.setItem('wttandroid', false)
+      sessionStorage.setItem('gimtth', false)
       
       $('#myRadio').addClass('active')
       $('.navigation').addClass('active')

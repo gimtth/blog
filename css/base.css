@@ -462,6 +462,51 @@ img {
 }
 .me-card .lianxi-list a{
  display: inline-block;
+ position: relative;
+}
+/* 自定义tooltip样式 */
+.me-card .lianxi-list a[data-tooltip]::before {
+  content: attr(data-tooltip) !important;
+  position: absolute !important;
+  bottom: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-8px) !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #ffffff !important;
+  padding: 10px 14px !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important;
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4) !important;
+  z-index: 9999 !important;
+  line-height: 1.4 !important;
+}
+/* tooltip小箭头 */
+.me-card .lianxi-list a[data-tooltip]::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-2px) !important;
+  border: 6px solid transparent !important;
+  border-top-color: #764ba2 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+}
+/* hover时显示tooltip */
+.me-card .lianxi-list a[data-tooltip]:hover::before,
+.me-card .lianxi-list a[data-tooltip]:hover::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
 }
 .me-card .buttom-box .button{
   display: block;

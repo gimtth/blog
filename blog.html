@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>求职简历</title>
+  <title>时光褶皱-博客</title>
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/blog.css">
   <script src="./js/jq.js"></script>
@@ -25,18 +25,8 @@
 
     <!-- 顶部栏 -->
     <div class="header borderafter">
-      <!-- 返回按钮 -->
-      <a style="position: absolute;left:50px;" href="javascript:history.back()">
-        <svg t="1649246285004" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          p-id="3737" width="20" height="20">
-          <path
-            d="M98 468.9l322.8-322.8v184.4C743.6 376.7 881.9 607.3 928 837.8 812.7 676.4 651.3 602.6 420.8 602.6v189.1L98 468.9z"
-            p-id="3738" fill="#254665"></path>
-        </svg>
-      </a>
-
       <div class="col">
-        <span>个人简历</span>
+        <span>时光褶皱</span>
         <!-- 右边操作栏 -->
         <div class="header-right">
           <!-- 按钮 -->
@@ -52,6 +42,7 @@
               <li><a href="./resume.html">经验</a></li>
               <li><a href="./contact.html">联系</a></li>
               <li class="active"><a href="./blog.html">博客</a></li>
+              <li><a href="./bookmark.html">书签</a></li>
               <li><a href="./live.html">其他</a></li>
             </ul>
             <!-- 开关灯 -->
@@ -100,22 +91,22 @@
       <!-- 占位符 -->
       <div class="co-left">
         <!-- 简历吸盘 -->
-        <div class="me-card carbox borderbefore" id="mycard">
+        <div class="me-card carbox borderbefore" id="mycard" style="margin-left: -80px;">
           <div class="mecar-title">
             <div class="me-image">
               <span class="status">
-                <i>林里谜案</i>
+                <i>时光褶皱</i>
               </span>
-              <img src="./img/toux.jpg" alt="">
+              <img src="./img/微信头像.jpg" alt="">
             </div>
-            <h3>wttAndroid的个人简历</h3>
+            <h3>拾柒的个人博客</h3>
             <p class="me-hover">
               <span>其实，我的愿望是世界和平！</span>
             </p>
           </div>
           <div class="borderbotm"></div>
           <div class="lianxi-list">
-            <a title="wx:w1457321681">
+            <a data-tooltip="微信: a13462610500">
               <svg t="1649145899448" class="icon" viewBox="0 0 1024 1024" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" p-id="14861" width="15" height="15">
                 <path
@@ -123,7 +114,7 @@
                   p-id="14862"></path>
               </svg>
             </a>
-            <a title="github:wttAndroid" href="https://gitee.com/wttAndroid">
+            <a data-tooltip="GitHub: gimtth" href="https://gitee.com/gimtth">
               <svg t="1649145950732" class="icon" viewBox="0 0 1024 1024" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" p-id="16367" width="15" height="15">
                 <path
@@ -134,7 +125,7 @@
                   fill="#172B4D" p-id="16369"></path>
               </svg>
             </a>
-            <a title="email:1457321681@qq.com" href="Mailto:1457321681@qq.com?Subject=邮箱标题&amp;Body=邮箱内容！">
+            <a data-tooltip="邮箱: 3427525100@qq.com" href="Mailto:3427525100@qq.com?Subject=邮箱标题&amp;Body=邮箱内容！">
               <svg t="1649145973361" class="icon" viewBox="0 0 1024 1024" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" p-id="17271" width="15" height="15">
                 <path
@@ -142,7 +133,7 @@
                   p-id="17272"></path>
               </svg>
             </a>
-            <a title="QQ:1457321681">
+            <a data-tooltip="QQ: 3427525100">
               <svg t="1649146096754" class="icon" viewBox="0 0 1024 1024" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" p-id="18277" width="15" height="15">
                 <path
@@ -155,21 +146,21 @@
           <div class="mecar-bottm">
             <div>
               <span class="mecarbottm-key">毕业院校</span>
-              <span class="mecarbottm-value">山西传媒学院</span>
+              <span class="mecarbottm-value">郑州升达经贸管理学院</span>
             </div>
             <div>
               <span class="mecarbottm-key">所在城市</span>
-              <span class="mecarbottm-value">山西 晋城</span>
+              <span class="mecarbottm-value">河南 郑州</span>
             </div>
             <div>
               <span class="mecarbottm-key">年级</span>
-              <span class="mecarbottm-value">23届毕业生</span>
+              <span class="mecarbottm-value">27届</span>
             </div>
 
           </div>
           <div class="borderbotm"></div>
           <div class="buttom-box ">
-            <a class="button" href="Mailto:1457321681@qq.com?Subject=邮箱标题&amp;Body=邮箱内容！">联系我</a>
+            <a class="button" href="./contact.html">联系我</a>
           </div>
         </div>
       </div>
@@ -423,7 +414,7 @@
         </div>
         <div class="borderbotm"></div>
         <div class="carbox copybottm">
-          © 2022 wttandroid
+          © 2022 gimtth
         </div>
       </div>
     </div>

@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时光褶皱-书签</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <script src="./js/jq.js"></script>
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/index1.css">
+</head>
+
+<body>
+  <canvas class="canvas-wrap" id="triangle-lost-in-space" resize="true"></canvas>
+
+  <!-- loadding -->
+  <div class="lodding-wrap">
+    <div class="loadding-div"></div>
+  </div>
+
+
+  <!-- 主要页面 -->
+  <div class="box">
+
+    <!-- 顶部栏 -->
+    <div class="header borderafter">
+      <div class="col">
+        <span>时光褶皱</span>
+        <!-- 右边操作栏 -->
+        <div class="header-right">
+          <!-- 按钮 -->
+          <div class="min_menu-wrap" id="minmenu">
+            <span class="min_menu"></span>
+          </div>
+          <!-- 列表 -->
+          <div class="menu_list">
+            <!-- 栏目 -->
+            <ul class="header-nav">
+              <li><a href="./index.html">主页</a></li>
+              <li><a href="./home.html">项目</a></li>
+              <li><a href="./resume.html">经验</a></li>
+              <li><a href="./contact.html">联系</a></li>
+              <li><a href="./blog.html">博客</a></li>
+              <li class="active"><a href="./bookmark.html">书签</a></li>
+              <li><a href="./live.html">其他</a></li>
+            </ul>
+            <!-- 开关灯 -->
+            <span class="kaig-bottm">
+              <svg t="1649159647627" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="2250" width="15" height="15">
+                <path
+                  d="M1008.535135 710.670332l-70.446388 116.386904a112.099975 112.099975 0 0 1-140.572857 43.829042l-69.422645-17.083729c-5.502624 3.1992-11.133217 6.3984-16.763809 9.341665l-18.299425 62.896276C687.335435 981.514621 639.4754 1023.744064 582.657604 1023.744064H441.764828c-56.817796 0-104.677831-42.293427-110.308423-97.703574l-18.299425-62.896276a422.166458 422.166458 0 0 1-16.827793-9.341665l-69.614597 17.083729a112.163959 112.163959 0 0 1-140.508873-43.893026L15.631361 710.542364a107.493127 107.493127 0 0 1 32.43989-144.731817L96.251206 518.910272a410.649338 410.649338 0 0 1 0-14.204448l-48.179955-46.836291a107.365159 107.365159 0 0 1-32.375906-144.731817l70.190452-116.450888a112.099975 112.099975 0 0 1 140.572857-43.893026l69.550612 17.083729c5.566608-3.1992 11.133217-6.3984 16.827794-9.341665l18.299425-62.896276C336.831061 42.229443 384.691096 0 441.508892 0H582.529636c56.817796 0 104.677831 42.293427 110.372407 97.63959l18.235441 62.704324c5.75856 3.007248 11.325169 6.142464 16.827793 9.341665l69.678581-17.083729a112.163959 112.163959 0 0 1 140.508873 43.893026l70.446388 116.514872a107.493127 107.493127 0 0 1-32.375906 144.731817l-48.179955 46.772307a414.616346 414.616346 0 0 1 0 14.204448l48.243939 46.836291c47.092227 31.928018 62.192452 94.952262 32.247938 145.115721z m-213.066733-142.23644l3.391152-31.032242a246.210447 246.210447 0 0 0 0-51.699076l-3.263184-30.904274 93.992502-91.305173-53.554612-88.553862-131.615096 32.311922-23.546113-16.059985a294.134466 294.134466 0 0 0-48.627844-26.809297l-27.513121-11.901025L568.453156 127.968008H455.649356L419.370426 252.736816l-27.705074 11.965009c-16.635841 7.166208-32.951762 16.187953-48.499875 26.745313l-23.610097 15.996001-131.487128-32.247938-53.36266 88.489878 94.056486 91.433141-3.263184 30.968258a247.874031 247.874031 0 0 0 0 51.699076l3.1992 30.904274-93.928518 91.369157 53.554612 88.489878 131.551112-32.311922 23.610097 16.059985c15.292177 10.429393 31.544114 19.451137 48.563859 26.809297l27.577106 11.965009L455.905292 895.776056h112.611848l36.342914-124.768808 27.64109-11.965009c16.699825-7.166208 32.951762-16.187953 48.563859-26.745313l23.546113-15.996001 131.423144 32.247938 53.68258-88.745814-94.184454-91.369157zM512.147232 615.846038c57.329668 0 103.846038-46.516371 103.974006-103.974006 0-57.329668-46.644339-103.974006-103.974006-103.974007S408.173225 454.542364 408.173225 511.872032 454.817564 615.846038 512.147232 615.846038z m0 127.968008c-127.968008 0-231.942014-103.910022-231.942015-231.942014 0-127.968008 103.910022-231.942014 231.942015-231.942015 127.968008 0 231.942014 103.910022 231.942014 232.133967A232.133967 232.133967 0 0 1 512.147232 743.814046z"
+                  p-id="2251"></path>
+              </svg>
+              <!-- 开关按钮 -->
+              <span class="my-radio active" id="myRadio">
+                <i></i>
+              </span>
+              <svg t="1649159678284" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="3376" width="15" height="15">
+                <path
+                  d="M505.4 878.6c-196.7 0-358-150.9-374.9-343.1 1-18.6 16.1-33.4 34.9-33.4 10.8 0 20.5 4.8 26.9 12.4 0.2 0.3 0.5 0.1 0.5-0.7 41.6 44.2 100.5 71.9 166.1 71.9 127.1 0 230.1-103 230.1-230.1 0-66.1-28-125.1-72.6-166.8 0.1-0.1 0.5-0.1 0.3-0.3-7-6.5-11.4-15.7-11.4-26.1 0-19 14.9-34.1 33.7-35.3 192.1 17.1 342.9 178.3 342.9 375 0 208-168.5 376.5-376.5 376.5z"
+                  p-id="3377"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 顶部导航 -->
+    <div class="navigation">
+      <div class="nav-titleBox co zz">
+        <!-- 标题 -->
+        <div class="co-right">
+          <span class="titleBox-tag">BOOKMARKS</span>
+          <h1>
+            常用书签<br>
+            Useful Links
+          </h1>
+          <a class="buttom navbtn" href="#next-one">查看更多
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="content zz">
+      <div id="next-one">
+        <!-- 其他 -->
+        <div class="content-li li2">
+          <h3>
+            <span>其他</span>
+            <div class="borderbotm"></div>
+            <span>01</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>主页(学生) - 郑州升达经贸管理学院信息门户</h4>
+                <p>常用链接</p>
+                <div class="borderbotm"></div>
+                <a href="http://my.shengda.edu.cn/?ticket=ST-34615-4d0b7848f49d4d29ad372b34bab88250" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>国家开发银行助学贷款学生在线系统</h4>
+                <p>常用链接</p>
+                <div class="borderbotm"></div>
+                <a href="https://sls.cdb.com.cn/#/login?redirect=%2Findex" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Microsoft Rewards 兑换目录</h4>
+                <p>常用链接</p>
+                <div class="borderbotm"></div>
+                <a href="https://rewards.bing.com/redeem/all?mkt=zh-CN" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- AI开发、设计 -->
+        <div class="content-li li2">
+          <h3>
+            <span>AI开发、设计</span>
+            <div class="borderbotm"></div>
+            <span>02</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>扣子</h4>
+                <p>AI开发与设计资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.coze.cn/template" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>首页 – Figma</h4>
+                <p>AI开发与设计资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.figma.com/files/team/1555192097604297964/recents-and-sharing?fuid=1555192095629822757" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>稀土掘金</h4>
+                <p>AI开发与设计资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://juejin.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>一个提示词 claude 生成一个 app 的 ui/ux - 飞书云文档</h4>
+                <p>AI开发与设计资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://ew6rccvpnmz.feishu.cn/wiki/ILO2waqXLi1EvqkuKHvcceMOnVd?fromScene=spaceOverview" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>前端自给自足UI设计稿（Claude AI 版本） | Justin3go</h4>
+                <p>AI开发与设计资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://justin3go.com/posts/2025/03/03-front-end-self-sufficient-ui-design-claude-ai-version#%E6%92%AD%E5%AE%A2%E7%B1%BB-app" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>【教程】MCP 保姆级教程 - 飞书云文档</h4>
+                <p>AI开发与设计资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://ccnk05wgo092.feishu.cn/wiki/SBujwszS8ikuVJk8QM0ckuLnnre" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Vercel: Build and deploy the best web experie...</h4>
+                <p>AI开发与设计资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://vercel.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- AI -->
+        <div class="content-li li2">
+          <h3>
+            <span>AI</span>
+            <div class="borderbotm"></div>
+            <span>03</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>WPS AI</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://ai.wps.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>讯飞星火认知大模型-AI大语言模型-星火大模型-科大讯飞</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://xinghuo.xfyun.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>豆包 - 你的 AI 朋友</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.doubao.com/chat/?guest_landing=1&login_source=bot_list_discover_unlog&type=0" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>pinokio</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://pinokio.computer/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>ChatGPT Online Free | Chat</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://chatgptdemo.info/chat/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>AI艺术 – AI研究所</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.aiyjs.com/category/ai%e8%89%ba%e6%9c%af" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>emo ai — 助力高效工作</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://emo.qhplus.cn/ai/dashboard/chat" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Chat with Open Large Language Models</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://arena.lmsys.org/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Latent Box</h4>
+                <p>AI工具与平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://latentbox.com/zh" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- PPT、推文模板 -->
+        <div class="content-li li2">
+          <h3>
+            <span>PPT、推文模板</span>
+            <div class="borderbotm"></div>
+            <span>04</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>秀米_公众号图文编辑器和H5制作 - 秀米XIUMI</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://xiumi.us/#/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>公众号首图-高清可编辑公众号首图/图片/模板/素材-创客贴第2页</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.chuangkit.com/sj-pi0-si216-or0-pt2-bt1-pn2.html" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>免费PPT下载网</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://m.xiazaii.com/moban/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>PPT模板_PPT模版免费下载_免费PPT模板下载 -【第一PPT】</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.1ppt.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>PPT超级市场官网-PPT模板免费下载、最新PPT成品搜索</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.pptsupermarket.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>PPT模板_PPT设计教程网</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.pptfans.cn/pptmuban" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>PPT模板 - PPT模板免费下载 - 免费PPT模板下载 - 微软officePLUS</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.officeplus.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>免费【优品PPT】</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.ypppt.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>创客贴_广告设计印刷_图片一键生成_设计图片素材大全</h4>
+                <p>演示文稿与模板</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.chuangkit.com/designtools/designindex" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- C语言练习 -->
+        <div class="content-li li2">
+          <h3>
+            <span>C语言练习</span>
+            <div class="borderbotm"></div>
+            <span>05</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>源程序评判系统</h4>
+                <p>编程练习平台</p>
+                <div class="borderbotm"></div>
+                <a href="http://171.8.42.116:8089/YuanChengXu/index" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>升达在线测试系统</h4>
+                <p>编程练习平台</p>
+                <div class="borderbotm"></div>
+                <a href="http://acm.shengda.edu.cn/loginpage.php" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>比赛列表 - 洛谷 | 计算机科学教育新生态</h4>
+                <p>编程练习平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.luogu.com.cn/contest/list" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>ZZULIOJ</h4>
+                <p>编程练习平台</p>
+                <div class="borderbotm"></div>
+                <a href="http://acm.zzuli.edu.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 网盘资源 -->
+        <div class="content-li li2">
+          <h3>
+            <span>网盘资源</span>
+            <div class="borderbotm"></div>
+            <span>06</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>阿里云盘</h4>
+                <p>云盘存储服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.aliyundrive.com/drive/file/resource/6523851311db1ca6e77b4254b66f5bd1266b5a85" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>阿里云盘分享</h4>
+                <p>云盘存储服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.aliyundrive.com/s/ZxY7rYNBxG5/folder/636f8a5d85e5a9e4b4aa450aadae7fc78bb47afa" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>123云盘</h4>
+                <p>云盘存储服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.123pan.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>百度网盘</h4>
+                <p>云盘存储服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://pan.baidu.com/disk/main?from=homeFlow#/index?category=all" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>夸克网盘</h4>
+                <p>云盘存储服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://pan.quark.cn/list#/list/all" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 网课资源 -->
+        <div class="content-li li2">
+          <h3>
+            <span>网课资源</span>
+            <div class="borderbotm"></div>
+            <span>07</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>86版西游记英文配音（中英双字幕）01猴王初问世_哔哩哔哩_bilibili</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.bilibili.com/video/BV1AL411p7cz/?vd_source=bc820627b25bd8d46218f5197371ee35" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>PTA | 程序设计类实验辅助教学平台</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://pintia.cn/problem-sets/dashboard" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>技能 | 终身教育平台</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://le.ouchn.cn/skillCourseList" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Photoshop图像处理（网络课） | 终身教育平台</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://le.ouchn.cn/courseDetails/CAAA010000011681" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>程序设计入门——C语言_中国大学MOOC(慕课)</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.icourse163.org/learn/ZJU-199001?tid=1470101496&learnMode=0#/learn/content?type=detail&id=1253329392&cid=1283623074" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>郑州升达经贸管理学院网络通识课程</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="http://fanya.shengda.edu.cn/portal" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>明解C语言入门篇2020-学习视频教程-腾讯课堂</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://ke.qq.com/course/3099164#term_id=103220780" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>菜鸟教程 - 学的不仅是技术，更是梦想！</h4>
+                <p>在线课程平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.runoob.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Git -->
+        <div class="content-li li2">
+          <h3>
+            <span>Git</span>
+            <div class="borderbotm"></div>
+            <span>08</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Releases - OpenCV</h4>
+                <p>开发者工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://opencv.org/releases/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>华为云开发者联盟</h4>
+                <p>开发者工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://huaweicloud.csdn.net/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>使用Gitee - 廖雪峰的官方网站</h4>
+                <p>开发者工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.liaoxuefeng.com/wiki/896043488029600/1163625339727712" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>邮箱管理 - Gitee.com</h4>
+                <p>开发者工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://gitee.com/profile/emails" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Dotcpp编程(C语言网)-编程入门学习-训练题库-实用的编程学练平台</h4>
+                <p>开发者工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.dotcpp.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>CSDN - 专业开发者社区</h4>
+                <p>开发者工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.csdn.net/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 学科学习 -->
+        <div class="content-li li2">
+          <h3>
+            <span>学科学习</span>
+            <div class="borderbotm"></div>
+            <span>09</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>2022年软件设计师学习路线 - 哔哩哔哩</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.bilibili.com/opus/704090344185135144?plat_id=243&share_from=article&share_medium=android&share_plat=android&share_source=WEIXIN&share_tag=s_i&spmid=dt.space-dt.0.0×tamp=1756805023&unique_k=fs46baB" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>学生考试 - iTEST智能测评云平台</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://itestcloud.unipus.cn/utest/itest/s/exam" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>个人空间</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://i.chaoxing.com/base?t=1713350318598" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>U校园</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://u.unipus.cn/user/student?school_id=9721" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>中国大学MOOC_优质在线课程学习平台</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.icourse163.org/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>全国大学英语四、六级考试(CET) - 中国教育考试网</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://cet.neea.edu.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>WE Learn 随行课堂</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://welearn.sflep.com/student/index.aspx" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>全国大学生职业规划大赛</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="https://zgs.chsi.com.cn/center/signup" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>欢迎来到 河南省人力资源和社会保障公共服务门户 | 河南省人力资源和社会保障公共服务门户</h4>
+                <p>学习资源平台</p>
+                <div class="borderbotm"></div>
+                <a href="http://222.143.34.13/hnggfw/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 电脑系统、镜像 -->
+        <div class="content-li li2">
+          <h3>
+            <span>电脑系统、镜像</span>
+            <div class="borderbotm"></div>
+            <span>10</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>清华大学开源软件镜像站 | Tsinghua Open Source Mirror</h4>
+                <p>系统镜像资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>微PE工具箱 - 超好用的装机维护工具</h4>
+                <p>系统镜像资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.wepe.com.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>镜像 - 山东大学镜像站</h4>
+                <p>系统镜像资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://mirrors.sdu.edu.cn/#/mirror" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 网页导航 -->
+        <div class="content-li li2">
+          <h3>
+            <span>网页导航</span>
+            <div class="borderbotm"></div>
+            <span>11</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Kevin Huang 的导航站 - 亲选软件与资源</h4>
+                <p>优质网址导航</p>
+                <div class="borderbotm"></div>
+                <a href="https://nav.kevinh.wang/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>小众技术工具库 | 专注分享实用软件和精品网站</h4>
+                <p>优质网址导航</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.xiaozhongjishu.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>鲸落文案 | 沙雕导航网 - 有趣好玩的网址导航</h4>
+                <p>优质网址导航</p>
+                <div class="borderbotm"></div>
+                <a href="https://shadiao.pro/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>翻应用 | 专注发现优质安卓应用</h4>
+                <p>优质网址导航</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.iapps.me/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>资源导航 - 不死鸟 - 分享为王官网</h4>
+                <p>优质网址导航</p>
+                <div class="borderbotm"></div>
+                <a href="https://iui.su/909/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>FUUN.FUN - 奇趣网站收藏家</h4>
+                <p>优质网址导航</p>
+                <div class="borderbotm"></div>
+                <a href="https://fuun.fun/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 工具 -->
+        <div class="content-li li2">
+          <h3>
+            <span>工具</span>
+            <div class="borderbotm"></div>
+            <span>12</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>遇见一个像你的人 - 在线打字练习（dazi.91xjr.com）</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://dazi.91xjr.com/typing" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>谷歌卫星高清地图-Google地图在线</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="http://www.gditu.net/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Greasy Fork - 安全、实用的用户脚本大全</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://greasyfork.org/zh-CN" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Microsoft数学求解器-数学问题求解器和计算器</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://mathsolver.microsoft.com/zh" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>就是加速 用户操作演示面板</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.94speed.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>在线工具 - 你的工具箱</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://tool.lu/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Windows 12 网页版</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://tjy-gitnub.github.io/win12/desktop.html" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Topbook | 高效生活视频书</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://topbook.cc/overview" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Browse Photoshop apps | Adobe Exchange</h4>
+                <p>实用在线工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://exchange.adobe.com/apps/browse/cc?product=PHSP&sort=RELEVANCE" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 影视、音乐 -->
+        <div class="content-li li2">
+          <h3>
+            <span>影视、音乐</span>
+            <div class="borderbotm"></div>
+            <span>13</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>音乐搜索器 - 多站合一音乐搜索,音乐在线试听</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="http://yytqq.sygjx.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>恶搞之家第一季-第01集免费在线观看-优酷云-第一美剧</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.diyimeiju.cc/play/11891-0-0.html" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Search Video</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://search.videoall.icu/search/ay1wc0JnblJzMlVDSjIyaHlvLU4zU1plSDhvQy1kUmF8M1Zjbm5JQXZOVzFkNldkNFdJSmw0Wml4c3UtU3NiaFh8N1hvSDA5bGpNS1RWWU52MlJyLXdBRzY4SDFiSDcyc1g=/super" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Search Video</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://search.videoall.icu/search/ay1wc0JnblJzMlVDSjIyaHlvLU4zU1plSDhvQy1kUmF8M1Zjbm5JQXZOVzFkNldkNFdJSmw0Wml4c3UtU3NiaFh8N1hvSDA5bGpNS1RWWU52MlJyLXdBRzY4SDFiSDcyc1g=/%25E7%2599%25BE%25E5%25BA%25A6%25E7%25BD%2591%25E7%259B%2598" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>视频解析-vip视频在线解析-全网VIP会员视频解析</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.cmdeye.com/video" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>4K动漫-4K在线观看动漫网站</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.agekkkk.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>AGE动漫</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://agedm1.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>求东京食尸鬼全四季动画，磁力链接 - VIP会员求片专区 - 4KHDR世界 - 4KHD...</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.4khdr.cn/thread-9253-1-1.html" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>4K电影 - 4K电影美剧下载 - HDR杜比视界资源 - 4KHDR世界 - 4KHDR...</h4>
+                <p>影音娱乐资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.4khdr.cn/forumtype-2-3-1.html" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 图片、壁纸 -->
+        <div class="content-li li2">
+          <h3>
+            <span>图片、壁纸</span>
+            <div class="borderbotm"></div>
+            <span>14</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>4K壁纸_4K手机壁纸_4K高清壁纸大全_电脑壁纸_4K,5K,6K,7K,8K壁纸图片素...</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://pic.netbian.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>素材中国www.sccnn.com_素材CNN_素材共享平台</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="http://www.sccnn.com/?utm_source=https://shadiao.pro" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>花瓣网 - 陪你做生活的设计师（创意灵感天堂，搜索、发现设计灵感、设计素材）</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://huaban.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>xldream - 免费AIGC图⽚素材⽹</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.xldream.com/#/page" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>免费PSD素材 PSD素材 免费下载</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://sc.chinaz.com/psd/free_5.html" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Freepik | Create great designs, faster</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.freepik.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>爱给网_音效配乐_3D模型_视频素材_免费下载</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.aigei.com/?utm_source=https://shadiao.pro" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>免费4K高清壁纸-电脑背景图片-Mac壁纸网站「哲风壁纸」</h4>
+                <p>图片与壁纸素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://haowallpaper.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 游戏 -->
+        <div class="content-li li2">
+          <h3>
+            <span>游戏</span>
+            <div class="borderbotm"></div>
+            <span>15</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>小游戏,4399小游戏,小游戏大全,双人小游戏大全 - www.4399.com</h4>
+                <p>游戏资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.4399.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>破解单机游戏_安卓游戏下载_NS游戏下载_掌机游戏资源_网游单机版_PC绿色软件_电影下载...</h4>
+                <p>游戏资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.xbgame.net/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>小妖怪分享|兴趣使然的资源搬运Blog</h4>
+                <p>游戏资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.xyg688.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Elastic Man 🕹️ Play on CrazyGames</h4>
+                <p>游戏资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.crazygames.com/game/elastic-man" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>指针指针</h4>
+                <p>游戏资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://pointerpointer.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>电脑端游戏 | 页 9 | GameStarfield | 游戏星空</h4>
+                <p>游戏资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://gamestarfield.com/forums/13/page-9" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>机游网 - 最全面的PC单机游戏下载站</h4>
+                <p>游戏资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://pcgamexiazai.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Adobe -->
+        <div class="content-li li2">
+          <h3>
+            <span>Adobe</span>
+            <div class="borderbotm"></div>
+            <span>16</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Photoshop-LookAE.com</h4>
+                <p>Adobe相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.lookae.com/qitarjcj/pszy/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>“ps”的搜索结果 – FCPX资源站</h4>
+                <p>Adobe相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.mfcpx.com/?post_type=post&s=ps" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>龋齿一号GFXCamp – CG营地|高速下载最新CG素材资源</h4>
+                <p>Adobe相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.gfxcamp.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>PS插件</h4>
+                <p>Adobe相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://jpsmile.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>PS神经滤镜Neural Filters灰色，不可用，无法下载等解决方法！解锁工具+离线包...</h4>
+                <p>Adobe相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.bilibili.com/read/cv28850995/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Adobe Account</h4>
+                <p>Adobe相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://account.adobe.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 视频素材 -->
+        <div class="content-li li2">
+          <h3>
+            <span>视频素材</span>
+            <div class="borderbotm"></div>
+            <span>17</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>33台词 - 通过台词找影片素材</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://33.agilestudio.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>pixabay.com</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://pixabay.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>视频素材下载_mp4视频大全 - 菜鸟图库</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.sucai999.com/video.html?v=NTYxMjky" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>潮点-全网视频素材搜索-视频素材下载</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://shipin520.com/sousuo/?word=%E7%A7%91%E6%8A%80&type=all&kid=2&order=&data=&page=1&from_code=2510" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Free stock video clips for commercial use - F...</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://focastock.com/videos/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>【实拍视频】免费下载_实拍视频素材_【包图网】</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://ibaotu.com/shipin/7-5026-0-0-0-1.html?spm=zhkolws" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Royalty Free 4k & HD Stock Video Footage Clip...</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://dareful.com/?from=thosefree.com" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Mixkit - 为您的下一个视频项目提供超棒的免费资源</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://mixkit.co/?from=33.agilestudio.cn" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>免费素材视频 · Pexels 视频</h4>
+                <p>视频素材资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.pexels.com/zh-cn/videos/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 音频素材 -->
+        <div class="content-li li2">
+          <h3>
+            <span>音频素材</span>
+            <div class="borderbotm"></div>
+            <span>18</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Royalty Free Background Music Downloads - Fes...</h4>
+                <p>音频与音效素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.fesliyanstudios.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Jamendo Music | Free music downloads</h4>
+                <p>音频与音效素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.jamendo.com/start" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>爱给网_音效配乐_3D模型_视频素材_免费下载</h4>
+                <p>音频与音效素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.aigei.com/?from=33.agilestudio.cn" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>耳聆网 - 听见世界之美 - (声音分享云|音效素材库)</h4>
+                <p>音频与音效素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.ear0.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Fish Audio</h4>
+                <p>音频与音效素材</p>
+                <div class="borderbotm"></div>
+                <a href="https://fish.audio/zh-CN/discovery/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 字体素材 -->
+        <div class="content-li li2">
+          <h3>
+            <span>字体素材</span>
+            <div class="borderbotm"></div>
+            <span>19</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>100font.com - 免费商用字体大全 - 免费字体下载网站</h4>
+                <p>字体下载资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.100font.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>字由-让用字更自由</h4>
+                <p>字体下载资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.hellofont.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>免费字体下载_字体识别 - 求字体网</h4>
+                <p>字体下载资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.qiuziti.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>字体天下-提供各类字体的免费下载和在线预览服务</h4>
+                <p>字体下载资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.fonts.net.cn/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>字体搬运工-免费商用字体下载</h4>
+                <p>字体下载资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://font.sucai999.com/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ai视频生成 -->
+        <div class="content-li li2">
+          <h3>
+            <span>ai视频生成</span>
+            <div class="borderbotm"></div>
+            <span>20</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>AI Kissing Video Generator</h4>
+                <p>AI视频生成工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://aikissingvideo.net/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Boolvideo</h4>
+                <p>AI视频生成工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://boolv.video/workspace" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Fliki - 使用 AI 语音将文本转换为视频</h4>
+                <p>AI视频生成工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://app.fliki.ai/files" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>欢迎来到 Runway - Runway</h4>
+                <p>AI视频生成工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://app.runwayml.com/signup" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- mac -->
+        <div class="content-li li2">
+          <h3>
+            <span>mac</span>
+            <div class="borderbotm"></div>
+            <span>21</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>搜索用户</h4>
+                <p>Mac相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://218.198.32.106:8080/user/base/index" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>校园网服务中心</h4>
+                <p>Mac相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://cloud.shb.ltd/shb/home/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 邮箱 -->
+        <div class="content-li li2">
+          <h3>
+            <span>邮箱</span>
+            <div class="borderbotm"></div>
+            <span>22</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>2925邮箱-无限邮</h4>
+                <p>邮箱服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.2925.com/login/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>QQ邮箱 - 收件箱</h4>
+                <p>邮箱服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://mail.qq.com/cgi-bin/frame_html?sid=P2nMHsOVGUOyL1A2&r=cec7cb7f12e38eb3d12aa95b6b8d3e12&lang=zh" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- cursor -->
+        <div class="content-li li2">
+          <h3>
+            <span>cursor</span>
+            <div class="borderbotm"></div>
+            <span>23</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Smithery - Model Context Protocol Registry</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://smithery.ai/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>cursor-free-everyday官方版下载丨最新版下载丨绿色版下载丨APP下载-1...</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.123684.com/s/ukekTd-SMml" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>NB</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://github.com/fly8888/cursor_machine_id" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Cursor试用期重置工具：解决Cursor试用期限制问题，轻松重置试用期，避免升级到专业...</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.aisharenet.com/cursor-free-trial-reset-tool/" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>go-cursor-helper ·NB有效</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://github.com/yuaotian/go-cursor-help/blob/master/README_CN.md" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>CURSOR VIP</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://cursor.jeter.eu.org/?p=4b977be2ce7a40868bdad32be62fff7c" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Cursor 全攻略：注册、使用到无限续杯，一次性讲清楚 - 知乎</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://zhuanlan.zhihu.com/p/23874722853" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>CURSOR VIP</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://cursor.jeter.eu.org/?p=3d4023cad9554ffbbe4c2399aff2c8b6" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>cursor-vip: cursor编辑器 免账号登录享受pro</h4>
+                <p>Cursor相关资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://gitee.com/kingparks/cursor-vip/" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 声音克隆 -->
+        <div class="content-li li2">
+          <h3>
+            <span>声音克隆</span>
+            <div class="borderbotm"></div>
+            <span>24</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>ChatTTS Forge - a Hugging Face Space by lenML</h4>
+                <p>语音克隆工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://huggingface.co/spaces/lenML/ChatTTS-Forge" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>声音克隆</h4>
+                <p>语音克隆工具</p>
+                <div class="borderbotm"></div>
+                <a href="https://zhuanlan.zhihu.com/p/639373370?utm_psn=1780953597464424448" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 服务器 -->
+        <div class="content-li li2">
+          <h3>
+            <span>服务器</span>
+            <div class="borderbotm"></div>
+            <span>25</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>如何快速搭建自己的阿里云服务器（宝塔）并且部署springboot+vue项目（全网最全）...</h4>
+                <p>服务器部署</p>
+                <div class="borderbotm"></div>
+                <a href="https://blog.csdn.net/weixin_48616345/article/details/128683951?sharetype=blog&shareId=128683951&sharerefer=APP&sharesource=2301_80271269&sharefrom=link" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>阿里云权益中心_助力学生、开发者、企业用云快速上云-阿里云</h4>
+                <p>服务器部署</p>
+                <div class="borderbotm"></div>
+                <a href="https://www.aliyun.com/benefit?utm_content=se_1019887613" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- app -->
+        <div class="content-li li2">
+          <h3>
+            <span>app</span>
+            <div class="borderbotm"></div>
+            <span>26</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>Android Studio | 修改镜像地址为阿里云镜像地址，启动App_android...</h4>
+                <p>App开发资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://blog.csdn.net/Qj60776671/article/details/143704140?spm=1001.2101.3001.6650.9&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-143704140-blog-91413732.235%5Ev43%5Epc_blog_bottom_relevance_base5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-9-143704140-blog-91413732.235%5Ev43%5Epc_blog_bottom_relevance_base5&utm_relevant_index=18" target="_blank">访问网站</a>
+              </div>
+            </div>
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>解决idea插件市场plugin无法加载出来，反复测试好用_idea插件市场无法打开-CS...</h4>
+                <p>App开发资源</p>
+                <div class="borderbotm"></div>
+                <a href="https://blog.csdn.net/m0_56806059/article/details/142440618" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- API -->
+        <div class="content-li li2">
+          <h3>
+            <span>API</span>
+            <div class="borderbotm"></div>
+            <span>27</span>
+          </h3>
+          <div class="li6-box">
+            <div class="carbox">
+              <div class="li6car-title">
+                <h4>OpenWeather API</h4>
+                <p>API接口服务</p>
+                <div class="borderbotm"></div>
+                <a href="https://home.openweathermap.org/api_keys" target="_blank">访问网站</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="borderbotm"></div>
+
+        <div class="carbox copybottm">
+
+          ©2025 时光褶皱
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script type="text/javascript" src="./js/paper-full.min.js"></script>
+<script type="text/javascript" src="./js/canvas.js"></script>
+<script src="./js/base.js"></script>
+
+</html>
+
